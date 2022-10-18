@@ -31,7 +31,6 @@ const Home = ({ userObj }) => {
   }, []);
   const onSubmit = async (event) => {
     event.preventDefault();
-    // if (tweet !== "") {
     const attachmentRef = ref(storage, `${userObj.uid}/${uuidv4()}`);
     await uploadString(attachmentRef, attachment, "data_url");
     const attachmentUrl = await getDownloadURL(attachmentRef);
@@ -44,7 +43,6 @@ const Home = ({ userObj }) => {
     await addDoc(collection(db, "tweets"), tweetObj);
     setTweet("");
     setAttachment("");
-    // }
   };
   const onChange = (event) => {
     const {
